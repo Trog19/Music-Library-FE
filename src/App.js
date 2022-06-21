@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import DisplayMusic from './components/DisplayMusic';
 
 
 function App() {
@@ -12,17 +12,24 @@ function App() {
 
 
   async function GetAllSongs(){
-    console.log("Inside GetAllSongs function")
     let response = await axios.get('http://127.0.0.1:8000/api/music/');
     setSongs(response.data);
     console.log("Songs data: ", response.data)
+    let musicTable= [response.data]
   }
 
-  return (
+  
+
+
+
+  return(
     <div >
+      <header>
+      <DisplayMusic songs={songs}/>
+      </header>
     </div>
   );
-
+  
 //   async function createSong(newSong){
 //     //newSong:
 //    // {
