@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 
-useState
 
 function App() {
   return (
