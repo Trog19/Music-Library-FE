@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import DisplayMusic from './components/DisplayMusic';
+import CreateSong from './components/CreateSong';
+import SearchBar from './components/SearchBar';
+import searchTerm from './components/SearchBar';
 
 
 function App() {
@@ -17,32 +20,38 @@ function App() {
     console.log("Songs data: ", response.data)
   }
 
-  
+    async function PostSong(newSong){
+      let response = await axios.post('http://127.0.0.1:8000/api/music/', newSong); 
+      if(response.status===201){
+        GetAllSongs()
+      }
+    }
+
+    function searchTerm(search){
+      let searchTerm= search
+      let results = songs.filter(
+        function(el){
+          if(el.title.includes.searchTerm){
+            return true;
+          }
+        }
+      );
+      return results
+    }
+    console.log(search())
 
 
-
-  return(
+    return(
     <div >
       <header>
+      <SearchBar/>
+      <CreateSong postSong={PostSong}/>
       <DisplayMusic songs={songs}/>
       </header>
     </div>
   );
   
-//   async function createSong(newSong){
-//     //newSong:
-//    // {
-//     //title: "Troubadour"
-//     //album: "Troubadour"
-//     //artist: "George Strait"
-//     //genre: "Country"
-//     //releaseDate: "04-01-2008"
-//  //   }
-//  let response = await axios.post('http://baseurl/api/music', newSong);
-//  if(response.status===201){
-//   await GetAllSongs
-//     }
-//   }
+
 
 
 }

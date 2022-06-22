@@ -9,7 +9,7 @@ console.log (props.songs)
                 <table>
                     <thead>
                         <tr>
-                        <th>Song</th>
+                        <th>Title</th>
                         <th>Artist</th>
                         <th>Album</th>
                         <th>Genre</th>
@@ -25,6 +25,7 @@ console.log (props.songs)
                                         <td>{song.album}</td>
                                         <td>{song.genre}</td>
                                         <td>{song.release_date}</td>
+                                        <td>{song.likes}</td>
                                     </tr>
                                 )
                             })}
