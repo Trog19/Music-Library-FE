@@ -1,27 +1,36 @@
 import React, { useEffect, useState } from "react"
 
-async function DisplayMusic(props){
-    const[songs, setSongs]= useState([]);
 
-    useEffect(()=>{
-        let musicTable = props.songs.map(songs, index) => {
-            return [songs.title, songs.artist, songs.album, songs.genre, songs.releaseDate]
-    });
-    setSongs(musicTable);
-}, [props.songs])
-    return(
-        <div>
-            {props.songs.map((songs, index))}
-        </div>
+const DisplayMusic = (props) => {
+console.log (props.songs)
+
+    return (  
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                        <th>Song</th>
+                        <th>Artist</th>
+                        <th>Album</th>
+                        <th>Genre</th>
+                        <th>Release Date</th>
+                        </tr>
+                    </thead>
+                        <tbody>
+                            {props.songs.map(song=>{
+                                return (
+                                    <tr>
+                                        <td>{song.title}</td>
+                                        <td>{song.artist}</td>
+                                        <td>{song.album}</td>
+                                        <td>{song.genre}</td>
+                                        <td>{song.release_date}</td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                </table>
+            </div>
     );
 }
-
-export default function DisplayMusic(props){
-    const{songs} = props
-
-    useEffect(()=>{
-            console.log(props.songs)
-    }
-    )
-
-}
+export default DisplayMusic;

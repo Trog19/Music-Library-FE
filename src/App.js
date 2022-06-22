@@ -15,7 +15,6 @@ function App() {
     let response = await axios.get('http://127.0.0.1:8000/api/music/');
     setSongs(response.data);
     console.log("Songs data: ", response.data)
-    let musicTable= [response.data]
   }
 
   
