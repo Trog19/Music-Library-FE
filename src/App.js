@@ -27,24 +27,21 @@ function App() {
       }
     }
 
-    function searchTerm(search){
-      let searchTerm= search
-      let results = songs.filter(
-        function(el){
-          if(el.title.includes.searchTerm){
+    const songSearch = (searchTerm) =>{
+      let results = songs.filter((song) => {
+          if(song.title.includes(searchTerm) || song.artist.includes(searchTerm) || song.album.includes(searchTerm) || song.genre.includes(searchTerm) || song.releaseDate.includes(searchTerm))
+          {
             return true;
           }
         }
-      );
-      return results
+      );setSongs(results)
     }
-    console.log(search())
 
 
     return(
     <div >
       <header>
-      <SearchBar/>
+      <SearchBar songSearch={songSearch}/>
       <CreateSong postSong={PostSong}/>
       <DisplayMusic songs={songs}/>
       </header>

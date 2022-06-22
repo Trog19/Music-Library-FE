@@ -6,10 +6,9 @@ const SearchBar = (props) => {
 
     function handleSubmit(event){
         event.preventDefault();
-        let searchTerm = {
-            search: search
-        };
-        console.log(searchTerm)
+       
+        props.songSearch(search)
+        console.log(search)
     }
     return ( 
         <form onSubmit={handleSubmit}>
