@@ -29,12 +29,12 @@ function App() {
 
     const songSearch = (searchTerm) =>{
       let results = songs.filter((song) => {
-          if(song.title.includes(searchTerm) || song.artist.includes(searchTerm) || song.album.includes(searchTerm) || song.genre.includes(searchTerm) || song.releaseDate.includes(searchTerm))
-          {
+          if(song.title.includes(searchTerm) || song.artist.includes(searchTerm) || song.album.includes(searchTerm) || song.genre.includes(searchTerm) || song.release_date.includes(searchTerm)){
             return true;
           }
         }
       );setSongs(results)
+
     }
 
 
