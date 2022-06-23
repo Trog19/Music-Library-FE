@@ -3,7 +3,8 @@ import axios from 'axios';
 import DisplayMusic from './components/DisplayMusic';
 import CreateSong from './components/CreateSong';
 import SearchBar from './components/SearchBar';
-import searchTerm from './components/SearchBar';
+import './App.css';
+
 
 
 function App() {
@@ -39,12 +40,14 @@ function App() {
 
 
     return(
-    <div >
+    <div className='border-box' >
       <header>
       <SearchBar songSearch={songSearch}/>
-      <CreateSong postSong={PostSong}/>
-      <DisplayMusic songs={songs}/>
       </header>
+      <div></div>
+      <DisplayMusic songs={songs}/>
+      <div></div>
+      <CreateSong postSong={PostSong}/>
     </div>
   );
   
